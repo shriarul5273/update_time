@@ -14,3 +14,11 @@ if grep -q "^The local day and time is:" README.md; then
 else
     printf "\nThe local day and time is: \"${LOCAL_TIME}\"\n" >> README.md
 fi
+
+git add README.md
+
+COMMIT_TIME=$(date -u "+%Y-%m-%d %H:%M:%S UTC")
+git commit -m "Update time: ${COMMIT_TIME}"
+
+git push
+    
